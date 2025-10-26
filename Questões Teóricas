@@ -1,0 +1,55 @@
+1.	O que significa alocação estática de memória para um conjunto de elementos? 
+R = Alocação estática significa que a memória necessária para armazenar o conjunto de elementos é reservada em tempo de compilação. O tamanho é fixo e não pode ser alterado durante a execução do programa. Um exemplo clássico em C é a declaração de um vetor com tamanho pré-definido, como int meu_vetor[100];
+
+2. Qual a diferença entre alocação estática e alocação dinâmica?
+R = Alocação Estática: Ocorre em tempo de compilação. O espaço de memória (geralmente na stack ou área de dados estáticos) é fixo. Se você aloca um vetor para 1000 elementos e só usa 10, os 990 restantes são desperdiçados.
+R = Alocação Dinâmica: Ocorre em tempo de execução. O espaço de memória (na heap) é solicitado ao sistema operacional (usando funções como malloc() em C). O tamanho é flexível, podendo ser aumentado ou diminuído (com realloc()) ou liberado (com free()) quando não for mais necessário.
+
+3. O que é um ponteiro?
+R= Um ponteiro é uma variável que armazena o endereço de memória de outra variável. Em vez de guardar um valor (como 10, 'A', ou 3.14), ele guarda a "localização" onde esse valor está guardado no computador.
+
+4. O que é uma estrutura de dados homogêneos? 
+R = É uma estrutura que armazena uma coleção de elementos, onde todos os elementos são do mesmo tipo de dado. O exemplo mais comum é o vetor (array). Se você declara int vetor[10];, ele só pode armazenar números inteiros.
+
+5. O que é uma estrutura de dados heterogêneos? 
+R = É uma estrutura que pode armazenar uma coleção de elementos de tipos diferentes de dados. Em C, o exemplo principal é a struct. Uma struct pode conter, ao mesmo tempo, um int, um char[] e um float. 
+
+6. Qual a vantagem das listas sobre os vetores em termos de consumo de memória? Exemplifique.
+R = A principal vantagem é a eficiência e flexibilidade.
+Vetores (Estáticos): Exigem que você defina um tamanho máximo na compilação. Se você não sabe quantos elementos precisará, pode alocar espaço demais (desperdício) ou de menos (o programa falha).
+Exemplo de Desperdício: Você cria um vetor para um cadastro de clientes: Cliente clientes [5000]; se você só cadastrar 30 clientes, a memória para 4970 clientes ficará reservada e sem uso.
+Listas (Dinâmicas): Alocam memória sob demanda. Cada novo elemento ("nó") é alocado dinamicamente. Se você tiver 30 clientes, você alocará memória para exatamente 30 nós. Se precisar de mais um, aloca apenas mais um. Não há desperdício de espaço.
+
+7. O que é uma lista simplesmente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados. 
+R = É uma estrutura de dados linear e dinâmica onde os elementos (nós) não estão necessariamente contíguos na memória. Cada nó contém duas partes:
+O dado (informação) que ele armazena.
+Um ponteiro que aponta para o endereço do próximo nó da sequência.
+O último nó da lista aponta para NULL, indicando o fim.
+Diagrama:
+
+8. O que é uma lista duplamente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
+R = É uma variação da lista encadeada onde cada nó possui três partes:
+O dado (informação).
+Um ponteiro para o próximo nó.
+Um ponteiro para o nó anterior.
+Isso permite a navegação na lista em ambos os sentidos (para frente e para trás), o que pode facilitar operações como remoção e inserção.
+Diagrama:
+
+9. O que é uma lista duplamente encadeada? Apresente um diagrama para ilustrar essa estrutura de dados.
+R = (QUESTÃO REPETIDA !!)
+
+10. Explique o funcionamento do algoritmo de busca binária e sequencial.
+R = Busca Sequencial (Linear): É o método mais simples. Ele percorre a coleção de dados (vetor ou lista) um por um, do início ao fim, comparando cada elemento com o valor buscado. Se encontrar, retorna à posição. Se chegar ao fim sem encontrar, informa que o valor não existe. Funciona em dados ordenados ou desordenados.
+Busca Binária: É um algoritmo muito mais eficiente, mas exige que os dados estejam ordenados. Ele funciona "dividindo para conquistar":
+Olha para o elemento no meio da coleção.
+Se for o valor buscado, termina.
+Se o valor buscado for menor que o do meio, ele descarta a segunda metade da coleção e repete o processo na primeira metade.
+Se o valor buscado for maior que o do meio, ele descarta a primeira metade e repete o processo na segunda metade.
+O processo continua até encontrar o item ou até não haver mais elementos para dividir.
+
+11. Explique o funcionamento dos seguintes algoritmos de ordenação:
+R = Insertion Sort (Ordenação por Inserção): Percorre o vetor da esquerda para a direita. A cada novo elemento, ele o "insere" na posição correta dentro da parte do vetor que já está ordenada (à esquerda), "empurrando" os elementos maiores para a direita.
+Selection Sort (Ordenação por Seleção): Percorre o vetor, encontra o menor elemento da parte ainda não ordenada e o "troca" (swap) com o elemento da posição atual. Repete o processo para a próxima posição, e assim por diante, até o vetor estar ordenado.
+Merge Sort (Ordenação por Mesclagem): É um algoritmo "dividir para conquistar". Ele divide recursivamente o vetor ao meio até ter vários sub-vetores de tamanho 1 (que, por definição, estão ordenados). Em seguida, ele "mescla" (merge) esses sub-vetores de forma ordenada, dois a dois, até que o vetor original esteja completo e ordenado.
+Count Sort (Ordenação por Contagem): É um algoritmo eficiente para quando se sabe o intervalo dos valores (ex: ordenar números de 0 a 100). Ele cria um vetor auxiliar para "contar" a frequência de cada elemento. Depois, usa essa contagem para remontar o vetor original na ordem correta.
+Quicksort (Ordenação Rápida): Também é "dividir para conquistar". Ele escolhe um elemento como "pivô". Em seguida, "particiona" o vetor: todos os elementos menores que o pivô são movidos para a sua esquerda, e os maiores para a sua direita. O pivô fica em sua posição correta. O algoritmo então é chamado recursivamente para as duas sub-partições (a da esquerda e a da direita do pivô).
